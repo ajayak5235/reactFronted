@@ -1,12 +1,20 @@
-function ExpenseItems(){
+import ExpenseDate from './ExpenseDate';
+import './ExpenseItems.css'
+
+function ExpenseItems(props){
+    const month = props.date.toLocaleString('en-US', {month:'long'});
+   
     return (
-     <div>
-         <h2>Expense Items</h2>
-         <h3>Food Rs 10</h3>
-         <h3>Petrol Rs 100</h3>
-         <h3>Movie Rs 200</h3>
-     </div>
-      
+
+        <div className='expense-item'>  
+         <ExpenseDate date={props.date}/>
+        
+         <div className='expense-item__description'>
+         <h2>{props.title}</h2>
+         <div className='expense-item__price'>${props.amount}</div>
+         </div>
+        </div>
+    
     )
 }
 
